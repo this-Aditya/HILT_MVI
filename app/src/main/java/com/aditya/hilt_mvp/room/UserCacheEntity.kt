@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Users")
+@Entity(tableName = "users")
 data class UserCacheEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo("id")
