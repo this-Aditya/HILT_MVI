@@ -4,7 +4,7 @@ import com.aditya.hilt_mvp.model.User
 import com.aditya.hilt_mvp.utils.EntityMapper
 import javax.inject.Inject
 
-class NetworkEntityMapper : EntityMapper<UserNetworkEntity, User> {
+class NetworkEntityMapper @Inject constructor() : EntityMapper<UserNetworkEntity, User> {
 
     override fun mapFromEntity(entity: UserNetworkEntity): User =
         User(entity.id, entity.name, entity.username, entity.gmail)

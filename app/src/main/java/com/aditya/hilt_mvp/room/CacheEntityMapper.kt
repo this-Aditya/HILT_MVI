@@ -2,8 +2,9 @@ package com.aditya.hilt_mvp.room
 
 import com.aditya.hilt_mvp.model.User
 import com.aditya.hilt_mvp.utils.EntityMapper
+import javax.inject.Inject
 
-class CacheEntityMapper : EntityMapper<UserCacheEntity, User> {
+class CacheEntityMapper @Inject constructor() : EntityMapper<UserCacheEntity, User> {
 
     override fun mapFromEntity(entity: UserCacheEntity): User =
         User(entity.id, entity.name, entity.userName, entity.gmail)
