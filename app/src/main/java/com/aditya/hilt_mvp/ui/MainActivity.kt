@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.textview.visibility = View.INVISIBLE
+        subscribeObservers()
         viewModel.setStateEvent(MainStateEvent.GetUserEvent)
     }
 

@@ -1,5 +1,6 @@
 package com.aditya.hilt_mvp.repository
 
+import android.util.Log
 import com.aditya.hilt_mvp.model.User
 import com.aditya.hilt_mvp.retrofit.NetworkEntityMapper
 import com.aditya.hilt_mvp.retrofit.UserNetworkEntity
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.lang.Exception
 
+private const val TAG = "MainRepository"
 class MainRepository
 constructor(
     private val userDao: UserDao,
@@ -31,6 +33,7 @@ constructor(
             for (user in cacheUsers) { userDao.inserUser(user) }
             val cachedUsers: List<UserCacheEntity> = userDao.getAllUsers()
             emit(DataState.Success(cacheMapper.mapFromEntities(cachedUsers)))
+            Log.i(TAG, "Users from database-> $users")
         } catch (ex: Exception) {
             emit(DataState.Error(ex))
         }

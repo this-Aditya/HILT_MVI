@@ -17,7 +17,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    @Assisted private val savedStateHandle: SavedStateHandle,
     private val repository: MainRepository
 ) : ViewModel() {
     private val _dataState: MutableLiveData<DataState<List<User>>> = MutableLiveData()
