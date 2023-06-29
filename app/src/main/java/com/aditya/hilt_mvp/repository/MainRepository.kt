@@ -9,6 +9,7 @@ import com.aditya.hilt_mvp.room.UserCacheEntity
 import com.aditya.hilt_mvp.room.UserDao
 import com.aditya.hilt_mvp.utils.DataState
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.lang.Exception
 
@@ -20,7 +21,7 @@ constructor(
     private val cacheMapper: CacheEntityMapper
 )
 {
-    suspend fun getUsers() = flow {
+    suspend fun getUsers(): Flow<DataState<List<User>>> = flow {
         emit(DataState.Loading)
         delay(1000)
         try {
