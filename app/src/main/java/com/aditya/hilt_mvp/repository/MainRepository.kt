@@ -10,10 +10,7 @@ import com.aditya.hilt_mvp.room.UserDao
 import com.aditya.hilt_mvp.utils.DataState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
-import java.lang.Error
 import java.lang.Exception
-import java.util.concurrent.Flow
-import javax.inject.Inject
 
 class MainRepository
 constructor(
@@ -30,7 +27,9 @@ constructor(
             val networkUsers: List<UserNetworkEntity> = retrofit.getUsers()
             val users: List<User> = networkMapper.mapFromEntityList(networkUsers)
             val cacheUsers: List<UserCacheEntity> = cacheMapper.mapToEntities(users)
-            emit(DataState.Success(users))
+            for (user in cacheUsers) { userDao.inserUser(user) }
+            val cachedUsers: List<UserCacheEntity> = userDao.getAllUsers()
+            emit(DataState.Success(cacheMapper.mapFromEntities(cachedUsers)))
         } catch (ex: Exception) {
             emit(DataState.Error(ex))
         }

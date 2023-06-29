@@ -1,5 +1,6 @@
 package com.aditya.hilt_mvp.di
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -19,7 +20,7 @@ class RoomModule {
 
     @Provides
     @Singleton
-    fun provideUserDB(context: Context): UserDatabase =
+    fun provideUserDB(context: Application): UserDatabase =
         Room.databaseBuilder(context, UserDatabase::class.java, DATABASE_NAME)
             .build()
 

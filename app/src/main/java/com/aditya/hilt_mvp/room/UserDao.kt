@@ -11,6 +11,6 @@ interface UserDao {
     suspend fun inserUser(user: UserCacheEntity): Long
 
     @Query("SELECT * FROM users")
-    suspend fun getAllUsers(): List<CacheEntityMapper>
+    suspend fun getAllUsers(): List<UserCacheEntity>
 
 }

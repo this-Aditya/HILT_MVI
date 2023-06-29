@@ -1,7 +1,8 @@
-package com.aditya.hilt_mvp
+package com.aditya.hilt_mvp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.aditya.hilt_mvp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
